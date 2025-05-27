@@ -6,9 +6,11 @@
         <title>日記</title>
     </head>
     <body>
-        <h1>日記</h1>
-        <p>{{ message }}</p>
-        <br />
-        <a href="{% url 'diary:page_create' %}">日記を書く</a>
+        <h2>日記を書く</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">送信</button>
+        </form>
     </body>
 </html>
