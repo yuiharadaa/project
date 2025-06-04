@@ -9,7 +9,9 @@
         <h1>日記</h1>
         <ul>
             {% for page in page_list %}
-                <li>{{ page.page_date }}: {{ page.title }}</li>
+                <li>{{ page.page_date }}: 
+                    <a href="{% url 'diary:page_detail' page.id %}">{{ page.title }}</a>
+                </li>
             {% empty %}
                 <div>日記がありません。</div>
             {% endfor %}
