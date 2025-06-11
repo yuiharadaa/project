@@ -6,10 +6,11 @@
         <title>日記</title>
     </head>
     <body>
-        <h2>{{ page.title}}</h2>
-        <div>{{ page.page_date }}</div>
-        <div>{{ page.body | linebreaksbr }}</div>
-        <br />
-        <a href="{% url 'diary:page_update' page.id %}">編集</a>
+        <h2>日記を編集</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">更新</button>
+        </form>
     </body>
 </html>
